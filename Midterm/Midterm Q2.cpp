@@ -13,7 +13,7 @@ public:
 
 int main()
 {
-	priority_queue<int>, vector<int>, MyCompareFunction> pq; //priority_queue are undefined
+	priority_queue<int>, vector<int>, <MyCompareFunction> pq; //priority_queue are undefined
 
 	pq.push(31); //pq are undefined
 	pq.push(45);
