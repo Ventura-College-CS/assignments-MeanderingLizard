@@ -1,0 +1,5 @@
+Student(100, "John", 85);
+Student(101, "Mimi", 83);
+Student(110, "Tony", 62);
+Student(111, "Megan", 96);
+Student(1000, "Miguel", 97);
