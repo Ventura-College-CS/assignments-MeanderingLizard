@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
+#include <stdlib.h>
 
 using namespace std;
 
@@ -34,19 +35,36 @@ void bubbleSort(int array[], int N)
 }
 
 
-void binarySearch(int array[], int N)
+int binarySearch(int arr[], int l, int r, int x)
 {
-    return;
+    if (r >= l) {
+        int mid = l + (r - l) / 2;
+ 
+
+        if (arr[mid] == x)
+            return mid;
+ 
+
+        if (arr[mid] > x)
+            return binarySearch(arr, l, mid - 1, x);
+ 
+ 
+        return binarySearch(arr, mid + 1, r, x);
+    }
+
+    return -1;
+
 }
+ 
+
 
 
 int main()
 {
-    const int array[i];
+     int array[i];
     for(int i=0; i<100; ++i)
-        total_binary += binarySearch(array, N, target);
+        total_binary += binarySearch(array, 0, N, target);
     bubbleSort(array, N);
     printArray(array, N);
- 
 
 }
