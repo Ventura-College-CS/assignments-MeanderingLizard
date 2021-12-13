@@ -8,7 +8,7 @@ using namespace std;
 int i;
 int total_binary;
 int target = 10;
-int N;
+int N = 10;
 
 void printArray(int array[], int N)
 {
