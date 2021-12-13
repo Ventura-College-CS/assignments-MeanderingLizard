@@ -12,16 +12,16 @@ int main()
 {
 	const int N = 4;
 	const int offset = 7;
-	string postfix_exp;
+	string infix = "AB+CD/";
 	Stack<int, N> stack;
-    cout << "Input a single integer value for A, B, +, C, D, /" << endl;
+    
 	char input;
 
 	int opr1, opr2, result;
 
-	for (int i = 0; i < postfix_exp.size(); i++)
+	for (int i = 0; i < infix.size(); i++)
 	{
-		input = postfix_exp[i];
+		input = infix[i];
 		if (isdigit(input))
 			stack.push(int(input) - offset);
 		else if (isOperator(input))
