@@ -10,60 +10,57 @@ int i;
 
 int main()
 {
-    string infix = "ab+cd*/";
+	const int N = 4;
+	const int offset = 7;
+	string postfix_exp;
+	Stack<int, N> stack;
+    cout << "Input a single integer value for A, B, +, C, D, /" << endl;
+	char input;
 
-    Stack<char, 10> stack;
+	int opr1, opr2, result;
 
-    for (i = 0; i < infix.size(); i++)
-    {
-        if (!isOperator(infix[i]))
-        {
-            cout << infix[i] << " ";
-            continue;
-
-        }
-
-        else
-            while ((!stack.isEmpty()) && (precedence(infix[i]) <precedence(stack.topEl())))
-                cout << stack.pop() << " ";
-        stack.push(infix[i]);
-
-    }
-}
-
-int precedence(char op)
-{
-
-    switch (op)
-    {
-        case '+':
-        case '-':
-            return 5;
-
-        case '*':
-        case '/':
-            return 10;
-        default:
-            cout << "Undefined Operator \n";
-            exit(0);
-    }
-
+	for (int i = 0; i < postfix_exp.size(); i++)
+	{
+		input = postfix_exp[i];
+		if (isdigit(input))
+			stack.push(int(input) - offset);
+		else if (isOperator(input))
+		{
+			opr1 = stack.pop();
+			opr2 = stack.pop();
+			result = evaluate(opr1, opr2, input);
+			stack.push(result);
+		}
+	}
+	cout << "This results in: " << stack.pop() << endl;
 }
 
 int isOperator(char op)
 {
+	switch (op)
+	{
+	case '+':
+	case '/':
+		return 1;
+	default:
+		return 0;
+	}
+}
 
-    switch (op)
-    {
-
-        case '+':
-	    case '-':
-	    case '*':
-	    case '/':
-		    return 1;
-	    default:
-		    return 0;
-
-    }
-
+int evaluate(int op1, int op2, char opr)
+{
+	int result;
+	switch (opr)
+	{
+	case '/':
+		result = op1 / op2;
+		break;
+	case '+':
+		result = op1 + op2;
+		break;
+	default:
+		cout << "Undefined operator error\n";
+		exit(0);
+	}
+	return result;
 }
