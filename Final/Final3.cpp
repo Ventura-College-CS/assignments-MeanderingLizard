@@ -1,5 +1,5 @@
 #include <iostream>
-#include "genStack.h"
+#include "genStack.h" //don't have it in includePath and method didn't work
 
 
 using namespace std;
